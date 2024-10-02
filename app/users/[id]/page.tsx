@@ -1,3 +1,3 @@
 export default function Page() {
-  return <>123</>
+  return <>Dynamic route to handle the user details</>
 }

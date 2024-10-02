@@ -13,21 +13,21 @@ const sampleData: IUserWithoutPassword[] = [
   {
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
-    email: 'lindsay.walton@example.com',
+    email: 'lindsay@example.com',
     role: UserRole.User,
     status: UserStatus.Active
   },
   {
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
-    email: 'lindsay.walton@example.com',
+    email: 'lindsay2@example.com',
     role: UserRole.User,
     status: UserStatus.Active
   },
   {
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
-    email: 'lindsay.walton@example.com',
+    email: 'lindsay3@example.com',
     role: UserRole.User,
     status: UserStatus.Active
   }
@@ -41,7 +41,7 @@ export default function Page() {
         btnText="Add User"
         btnHref="/users/add"
       />
-      <UsersTable users={sampleData} />;
+      <UsersTable users={sampleData} />
     </>
   )
 }
