@@ -8,6 +8,7 @@ import Image from 'next/image'
 import logo from '../../../app/public/logo.png'
 
 const navigation = [
+  { name: 'About', href: '/about' },
   { name: 'Users', href: '/users' },
   { name: 'Add User', href: '/users/add' },
   { name: 'Sample Profile', href: '/users/sample' }

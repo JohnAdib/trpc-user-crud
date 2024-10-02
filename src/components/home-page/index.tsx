@@ -6,7 +6,7 @@ import Link from 'next/link'
 export function HomePage() {
   return (
     <div className="bg-white">
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate px-6 pt-6 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -35,7 +35,7 @@ export function HomePage() {
           </div>
           <div className="text-center">
             <h1 className="text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              User Management
+              Simple User Management
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               A simple and efficient way to manage users. Add, view, and delete
