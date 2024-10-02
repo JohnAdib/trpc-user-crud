@@ -1,19 +1,27 @@
-import { UserRole } from "./enum/type-user-role";
-import { UserStatus } from "./enum/type-user-status";
+import { UserRole } from './enum/type-user-role'
+import { UserStatus } from './enum/type-user-status'
 
 interface IUserBase {
-  firstName: string;
-  lastName: string;
-  email: string;
-  bio?: string;
-  role: UserRole;
-  status: UserStatus;
+  firstName: string
+  lastName: string
+  email: string
+  role: UserRole
+  bio?: string
+  status?: UserStatus
 }
 
 export interface IUserWithPassword extends IUserBase {
-  password: string;
+  password: string
 }
 
 export interface IUserWithoutPassword extends IUserBase {
-  password?: never;
+  password?: never
+}
+
+export interface IUserListResponse {
+  users: IUserWithoutPassword[]
+}
+
+export interface IDeleteUser {
+  id: number
 }

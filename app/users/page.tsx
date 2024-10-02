@@ -1,36 +1,47 @@
-import { UsersTable } from "@/components/users-table";
-import { IUserWithoutPassword, UserRole, UserStatus } from "@/interfaces";
+import { PageHeader } from '@/components/page-header'
+import { UsersTable } from '@/components/users-table'
+import { IUserWithoutPassword, UserRole, UserStatus } from '@/interfaces'
 
 const sampleData: IUserWithoutPassword[] = [
   {
-    firstName: "Lindsay Walton",
-    lastName: "Front-end Developer",
-    email: "lindsay.walton@example.com",
+    firstName: 'Lindsay Walton',
+    lastName: 'Front-end Developer',
+    email: 'lindsay.walton@example.com',
     role: UserRole.User,
-    status: UserStatus.Active,
+    status: UserStatus.Active
   },
   {
-    firstName: "Lindsay Walton",
-    lastName: "Front-end Developer",
-    email: "lindsay.walton@example.com",
+    firstName: 'Lindsay Walton',
+    lastName: 'Front-end Developer',
+    email: 'lindsay.walton@example.com',
     role: UserRole.User,
-    status: UserStatus.Active,
+    status: UserStatus.Active
   },
   {
-    firstName: "Lindsay Walton",
-    lastName: "Front-end Developer",
-    email: "lindsay.walton@example.com",
+    firstName: 'Lindsay Walton',
+    lastName: 'Front-end Developer',
+    email: 'lindsay.walton@example.com',
     role: UserRole.User,
-    status: UserStatus.Active,
+    status: UserStatus.Active
   },
   {
-    firstName: "Lindsay Walton",
-    lastName: "Front-end Developer",
-    email: "lindsay.walton@example.com",
+    firstName: 'Lindsay Walton',
+    lastName: 'Front-end Developer',
+    email: 'lindsay.walton@example.com',
     role: UserRole.User,
-    status: UserStatus.Active,
-  },
-];
+    status: UserStatus.Active
+  }
+]
 export default function Page() {
-  return <UsersTable users={sampleData} />;
+  return (
+    <>
+      <PageHeader
+        title="Users"
+        description="A list of all the users. You can add, view, and delete users."
+        btnText="Add User"
+        btnHref="/users/add"
+      />
+      <UsersTable users={sampleData} />;
+    </>
+  )
 }
