@@ -1,5 +1,5 @@
-import { UserRole } from "./type-user-role";
-import { UserStatus } from "./type-user-status";
+import { UserRole } from "./enum/type-user-role";
+import { UserStatus } from "./enum/type-user-status";
 
 interface IUserBase {
   firstName: string;
