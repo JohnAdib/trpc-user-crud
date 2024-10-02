@@ -4,6 +4,7 @@ import './globals.css'
 import { Header } from '@/components/layout/header'
 import { LayoutFooter } from '@/components/layout/footer'
 import clsx from 'clsx'
+import { Container } from '@/components/atoms/container'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -32,7 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <div className={clsx('grow')}>{children}</div>
+        <Container className={clsx('grow', 'py-6 md:py-12')}>
+          {children}
+        </Container>
         <LayoutFooter />
       </body>
     </html>

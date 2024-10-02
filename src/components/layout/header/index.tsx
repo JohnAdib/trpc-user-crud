@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../../../../app/public/logo.png'
 
 const navigation = [
   { name: 'Users', href: '/users' },
@@ -11,11 +13,14 @@ const navigation = [
   { name: 'Sample Profile', href: '/users/sample' }
 ]
 
+const projectText = 'Project on GitHub'
+const projectUrl = 'https://github.com/JohnAdib/trpc-user-crud'
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white">
+    <header className="bg-white border-b border-amber-500/50">
       <nav
         aria-label="Global"
         className="flex items-center justify-between p-6 lg:px-8"
@@ -23,11 +28,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <Image alt="Logo" src={logo} className="h-8 w-auto" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -42,22 +43,22 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="https://MrAdib.com"
+            href={projectUrl}
             target="_blank"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600"
           >
-            MrAdib <span aria-hidden="true">&rarr;</span>
+            {projectText} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -70,12 +71,7 @@ export function Header() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+              <Image alt="Logo" src={logo} className="h-8 w-auto" />
             </Link>
             <button
               type="button"
@@ -101,11 +97,11 @@ export function Header() {
               </div>
               <div className="py-6">
                 <a
-                  href="https://MrAdib.com"
+                  href={projectUrl}
                   target="_blank"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  MrAdib
+                  {projectText}
                 </a>
               </div>
             </div>
