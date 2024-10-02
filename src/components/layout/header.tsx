@@ -47,7 +47,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600"
+              className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-50"
             >
               {item.name}
             </Link>
@@ -57,7 +57,7 @@ export function Header() {
           <a
             href={projectUrl}
             target="_blank"
-            className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600"
+            className="text-sm font-semibold leading-6 text-gray-900 transition hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-50"
           >
             {projectText} <span aria-hidden="true">&rarr;</span>
           </a>
@@ -77,7 +77,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -90,7 +90,7 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-gray-800"
                   >
                     {item.name}
                   </Link>
@@ -100,7 +100,7 @@ export function Header() {
                 <a
                   href={projectUrl}
                   target="_blank"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-gray-800"
                 >
                   {projectText}
                 </a>

@@ -6,13 +6,13 @@ export function Footer() {
           <a
             href="https://MrAdib.com"
             target="_blank"
-            className="text-gray-500 hover:text-gray-700 transition"
+            className="text-gray-500 hover:text-gray-700 transition dark:text-gray-100 dark:hover:text-gray-50"
           >
             MrAdib <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
         <div className="mt-2 md:order-1 md:mt-0">
-          <p className="text-center text-gray-500">
+          <p className="text-center text-gray-500 dark:text-gray-300">
             &copy; 2020 MrAdib. Some rights reserved!
           </p>
         </div>

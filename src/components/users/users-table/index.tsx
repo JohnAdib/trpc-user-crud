@@ -1,4 +1,5 @@
 import { IUserWithoutPassword } from '@/interfaces'
+import Link from 'next/link'
 
 export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
   return (
@@ -44,7 +45,7 @@ export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                   {users.map((person) => (
-                    <tr key={person.email}>
+                    <tr key={person.id}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         {person.firstName}
                       </td>
@@ -58,13 +59,13 @@ export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
                         {person.role}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <a
-                          href="#"
+                        <Link
+                          href={'/users/' + person.id}
                           className="text-indigo-600 hover:text-indigo-900"
                         >
-                          Edit
+                          View Profile
                           <span className="sr-only">, {person.firstName}</span>
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   ))}

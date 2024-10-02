@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function HomePage() {
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="relative isolate px-6 pt-6 lg:px-8">
         <div
           aria-hidden="true"
@@ -21,12 +21,12 @@ export function HomePage() {
         </div>
         <div className="mx-auto max-w-2xl py-12 sm:py-24 lg:py-32">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-200">
               You wanna check the code?{' '}
               <a
                 href="https://github.com/JohnAdib/trpc-user-crud"
                 target="_blank"
-                className="font-semibold text-indigo-600"
+                className="font-semibold text-sky-600 dark:text-sky-400"
               >
                 <span aria-hidden="true" className="absolute inset-0" />
                 GitHub Repo <span aria-hidden="true">&rarr;</span>
@@ -34,10 +34,10 @@ export function HomePage() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-gray-100">
               Simple User Management
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
               A simple and efficient way to manage users. Add, view, and delete
               user information using Next.js and tRPC for end-to-end type safety
               and fast performance.
@@ -48,7 +48,7 @@ export function HomePage() {
               </Button>
               <Link
                 href="/about"
-                className="text-sm font-semibold leading-6 text-gray-900 select-none"
+                className="text-sm font-semibold leading-6 text-gray-900 select-none dark:text-gray-100"
               >
                 Learn more <span aria-hidden="true">→</span>
               </Link>

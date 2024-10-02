@@ -1,9 +1,10 @@
-import { PageHeader } from '@/components/page-header'
-import { UsersTable } from '@/components/users-table'
+import { PageHeader } from '@/components/layout/page-header'
+import { UsersTable } from '@/components/users/users-table'
 import { IUserWithoutPassword, UserRole, UserStatus } from '@/interfaces'
 
 const sampleData: IUserWithoutPassword[] = [
   {
+    id: 1,
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
     email: 'lindsay.walton@example.com',
@@ -11,6 +12,7 @@ const sampleData: IUserWithoutPassword[] = [
     status: UserStatus.Active
   },
   {
+    id: 2,
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
     email: 'lindsay@example.com',
@@ -18,20 +20,15 @@ const sampleData: IUserWithoutPassword[] = [
     status: UserStatus.Active
   },
   {
+    id: 3,
     firstName: 'Lindsay Walton',
     lastName: 'Front-end Developer',
     email: 'lindsay2@example.com',
     role: UserRole.User,
     status: UserStatus.Active
-  },
-  {
-    firstName: 'Lindsay Walton',
-    lastName: 'Front-end Developer',
-    email: 'lindsay3@example.com',
-    role: UserRole.User,
-    status: UserStatus.Active
   }
 ]
+
 export default function Page() {
   return (
     <>
