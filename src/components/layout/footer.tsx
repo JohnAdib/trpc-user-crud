@@ -1,6 +1,6 @@
-export function LayoutFooter() {
+export function Footer() {
   return (
-    <footer className="bg-white text-sm border-t border-amber-500/50">
+    <footer className="text-sm border-t border-amber-500/50 select-none z-50">
       <div className="mx-auto max-w-7xl px-6 py-6 md:py-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           <a

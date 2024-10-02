@@ -5,7 +5,7 @@ import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../../../app/public/logo.png'
+import logo from '../../../app/public/logo.png'
 
 const navigation = [
   { name: 'Users', href: '/users' },
@@ -20,7 +20,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-amber-500/50">
+    <header className="border-b border-amber-500/50 select-none z-50">
       <nav
         aria-label="Global"
         className="flex items-center justify-between p-6 lg:px-8"

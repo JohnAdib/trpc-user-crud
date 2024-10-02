@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { Header } from '@/components/layout/header'
-import { LayoutFooter } from '@/components/layout/footer'
+import { Footer } from '@/components/layout/footer'
 import clsx from 'clsx'
 import { Container } from '@/components/atoms/container'
 
@@ -30,13 +30,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={clsx(
+          geistSans.variable,
+          geistMono.variable,
+          'antialiased',
+          'flex',
+          'flex-col',
+          'relative',
+          'min-h-screen'
+        )}
       >
         <Header />
         <Container className={clsx('grow', 'py-6 md:py-12')}>
           {children}
         </Container>
-        <LayoutFooter />
+        <Footer />
       </body>
     </html>
   )
