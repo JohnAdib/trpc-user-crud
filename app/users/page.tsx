@@ -1,7 +1,7 @@
 'use client'
 
-import { PageHeader } from '@/components/layout/page-header'
-import { UsersTable } from '@/components/users/users-table'
+import { PageHeader } from '@components/layout/page-header'
+import { UsersTable } from '@components/users/users-table'
 import Swal from 'sweetalert2'
 import { trpc } from '~/trpc/client'
 

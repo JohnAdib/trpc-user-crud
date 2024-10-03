@@ -1,6 +1,6 @@
 'use client'
 
-import { BrowserFrame } from '@/components/layout/browser-frame'
+import { BrowserFrame } from '@components/layout/browser-frame'
 import { IUser } from '@interfaces'
 
 export default function Page() {

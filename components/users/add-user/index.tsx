@@ -1,13 +1,13 @@
 'use client'
 
-import { Divider } from '@/components/atoms/divider'
-import { Heading, Subheading } from '@/components/atoms/heading'
-import { Textarea } from '@/components/atoms/textarea'
-import { Input } from '@/components/atoms/input'
-import { Text } from '@/components/atoms/text'
+import { Divider } from '@components/atoms/divider'
+import { Heading, Subheading } from '@components/atoms/heading'
+import { Textarea } from '@components/atoms/textarea'
+import { Input } from '@components/atoms/input'
+import { Text } from '@components/atoms/text'
 import clsx from 'clsx'
-import { Button } from '@/components/atoms/button'
-import { Select } from '@/components/atoms/select'
+import { Button } from '@components/atoms/button'
+import { Select } from '@components/atoms/select'
 import { UserRole } from '@interfaces'
 
 function UserRoleOptions() {

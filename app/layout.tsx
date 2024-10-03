@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
+import { Header } from '@components/layout/header'
+import { Footer } from '@components/layout/footer'
 import clsx from 'clsx'
-import { Container } from '@/components/atoms/container'
+import { Container } from '@components/atoms/container'
 import { TRPCProvider } from '~/trpc/client'
 
 const geistSans = localFont({
