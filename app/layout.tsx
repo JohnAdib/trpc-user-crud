@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import clsx from 'clsx'
 import { Container } from '@/components/atoms/container'
+import { TRPCProvider } from '~/trpc/client'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -42,7 +43,7 @@ export default function RootLayout({
       >
         <Header />
         <Container className={clsx('grow', 'py-6 md:py-12')}>
-          {children}
+          <TRPCProvider>{children}</TRPCProvider>
         </Container>
         <Footer />
       </body>
