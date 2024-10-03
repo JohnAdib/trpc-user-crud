@@ -25,7 +25,7 @@ interface IAddUser {
 export function AddUser({ onSubmit }: IAddUser) {
   return (
     <form method="post" className="mx-auto max-w-4xl" onSubmit={onSubmit}>
-      <Heading>Settings</Heading>
+      <Heading>Add New User</Heading>
       <Divider className="my-10 mt-6" />
 
       <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -34,7 +34,12 @@ export function AddUser({ onSubmit }: IAddUser) {
           <Text>This will be displayed on your public profile.</Text>
         </div>
         <div>
-          <Input aria-label="Name" name="mame" defaultValue="" />
+          <Input
+            aria-label="Name"
+            name="mame"
+            defaultValue=""
+            autoComplete="name"
+          />
         </div>
       </section>
 
@@ -50,6 +55,7 @@ export function AddUser({ onSubmit }: IAddUser) {
             type="email"
             aria-label="Email"
             name="email"
+            autoComplete="email"
             // defaultValue="info@example.com"
           />
         </div>

@@ -10,8 +10,11 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
+    "@uiw/codemirror-theme-dracula": "^4.23.4",
+    "@uiw/react-codemirror": "^4.23.4",
     "clsx": "^2.1.1",
     "next": "14.2.14",
     "react": "^18",
