@@ -1,16 +1,10 @@
-export interface PaginationResult<T> {
-  data: T[]
-  totalItems: number
-  totalPages: number
-  currentPage: number
-  perPage: number
-}
+import { IPaginationResult } from '@/interfaces'
 
 export function paginate<T>(
   items: T[],
   currentPage: number,
   perPage: number
-): PaginationResult<T> {
+): IPaginationResult<T> {
   const totalItems = items.length
   const totalPages = Math.ceil(totalItems / perPage)
 
@@ -20,7 +14,7 @@ export function paginate<T>(
   const paginatedItems = items.slice(start, start + perPage)
 
   return {
-    data: paginatedItems,
+    result: paginatedItems,
     totalItems,
     totalPages,
     currentPage: safePage,

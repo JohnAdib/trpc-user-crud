@@ -13,7 +13,7 @@ export function Footer() {
         </div>
         <div className="mt-2 md:order-1 md:mt-0">
           <p className="text-center text-gray-500 dark:text-gray-300">
-            &copy; 2020 MrAdib. Some rights reserved!
+            &copy; 2024 MrAdib. Some rights reserved!
           </p>
         </div>
       </div>
