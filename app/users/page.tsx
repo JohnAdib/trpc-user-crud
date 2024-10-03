@@ -1,5 +1,6 @@
 'use client'
 
+import { Loading } from '@components/layout/loading'
 import { PageHeader } from '@components/layout/page-header'
 import { UsersTable } from '@components/users/users-table'
 import Swal from 'sweetalert2'
@@ -12,10 +13,10 @@ export default function Page() {
   })
 
   if (data === undefined) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
-  if (data === null || data.result.length === 0) {
+  if (data === null || data?.result.length === 0) {
     return <div>No users found.</div>
   }
 
