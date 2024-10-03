@@ -3,7 +3,12 @@
 import { IUser } from '@/interfaces'
 import Link from 'next/link'
 
-export function UsersTable({ users }: { users: IUser[] }) {
+interface IUsersTable {
+  users: IUser[]
+  onClickDelete: (id: string) => void
+}
+
+export function UsersTable({ users, onClickDelete }: IUsersTable) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="mt-8 flow-root">
@@ -63,6 +68,11 @@ export function UsersTable({ users }: { users: IUser[] }) {
                           View Profile
                           <span className="sr-only">, {person.name}</span>
                         </Link>
+                        <div
+                          onClick={() => onClickDelete(person.id.toString())}
+                        >
+                          Delete
+                        </div>
                       </td>
                     </tr>
                   ))}

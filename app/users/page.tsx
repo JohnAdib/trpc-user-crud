@@ -1,8 +1,11 @@
+'use client'
+
 import { PageHeader } from '@/components/layout/page-header'
 import { UsersTable } from '@/components/users/users-table'
-import { IUserWithoutPassword, UserRole, UserStatus } from '@/interfaces'
+import { IUser, UserRole, UserStatus } from '@/interfaces'
+import Swal from 'sweetalert2'
 
-const sampleData: IUserWithoutPassword[] = [
+const sampleData: IUser[] = [
   {
     id: 1,
     name: 'Lindsay Walton',
@@ -27,6 +30,38 @@ const sampleData: IUserWithoutPassword[] = [
 ]
 
 export default function Page() {
+  const deleteHandler = (id: string): boolean => {
+    console.log('delete user with id: ', id)
+    return true
+  }
+
+  const handleDelete = (id: string) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text:
+        "You won't be able to revert this! You are about to delete user with id " +
+        id,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const deleted = deleteHandler(id)
+        if (deleted) {
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'User has been deleted!',
+            icon: 'success'
+          })
+        } else {
+          Swal.fire('Error!', 'Something went wrong!', 'error')
+        }
+      }
+    })
+  }
+
   return (
     <>
       <PageHeader
@@ -35,7 +70,7 @@ export default function Page() {
         btnText="Add User"
         btnHref="/users/add"
       />
-      <UsersTable users={sampleData} />
+      <UsersTable users={sampleData} onClickDelete={handleDelete} />
     </>
   )
 }
