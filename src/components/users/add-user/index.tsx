@@ -1,27 +1,40 @@
+'use client'
+
 import { Divider } from '@/components/atoms/divider'
 import { Heading, Subheading } from '@/components/atoms/heading'
-import { Textarea, Checkbox, Label, Select, Button } from '@headlessui/react'
+import { Textarea } from '@/components/atoms/textarea'
 import { Input } from '@/components/atoms/input'
 import { Text } from '@/components/atoms/text'
-import { CheckboxField } from '@/components/atoms/checkbox'
+import clsx from 'clsx'
+import { Button } from '@/components/atoms/button'
+import { Select } from '@/components/atoms/select'
+import { UserRole } from '@/interfaces'
 
-export function AddUser() {
+function UserRoleOptions() {
+  return Object.keys(UserRole).map((role) => (
+    <option key={role} value={role.toLocaleLowerCase()}>
+      {role}
+    </option>
+  ))
+}
+
+interface IAddUser {
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
+
+export function AddUser({ onSubmit }: IAddUser) {
   return (
-    <form method="post" className="mx-auto max-w-4xl">
+    <form method="post" className="mx-auto max-w-4xl" onSubmit={onSubmit}>
       <Heading>Settings</Heading>
       <Divider className="my-10 mt-6" />
 
       <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className="space-y-1">
-          <Subheading>Organization Name</Subheading>
+          <Subheading>Name</Subheading>
           <Text>This will be displayed on your public profile.</Text>
         </div>
         <div>
-          <Input
-            aria-label="Organization Name"
-            name="name"
-            defaultValue="Catalyst"
-          />
+          <Input aria-label="Name" name="mame" defaultValue="" />
         </div>
       </section>
 
@@ -29,35 +42,16 @@ export function AddUser() {
 
       <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className="space-y-1">
-          <Subheading>Organization Bio</Subheading>
-          <Text>
-            This will be displayed on your public profile. Maximum 240
-            characters.
-          </Text>
-        </div>
-        <div>
-          <Textarea aria-label="Organization Bio" name="bio" />
-        </div>
-      </section>
-
-      <Divider className="my-10" soft />
-
-      <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-        <div className="space-y-1">
-          <Subheading>Organization Email</Subheading>
+          <Subheading>Email</Subheading>
           <Text>This is how customers can contact you for support.</Text>
         </div>
         <div className="space-y-4">
           <Input
             type="email"
-            aria-label="Organization Email"
+            aria-label="Email"
             name="email"
-            defaultValue="info@example.com"
+            // defaultValue="info@example.com"
           />
-          <CheckboxField>
-            <Checkbox name="email_is_public" defaultChecked />
-            <Label>Show email on public profile</Label>
-          </CheckboxField>
         </div>
       </section>
 
@@ -65,21 +59,42 @@ export function AddUser() {
 
       <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className="space-y-1">
-          <Subheading>Currency</Subheading>
-          <Text>The currency that your organization will be collecting.</Text>
+          <Subheading>Role</Subheading>
+          <Text>The User Role determines what permissions you have.</Text>
         </div>
         <div>
-          <Select aria-label="Currency" name="currency" defaultValue="cad">
-            <option value="cad">CAD - Canadian Dollar</option>
-            <option value="usd">USD - United States Dollar</option>
+          <Select aria-label="Role" name="role" defaultValue="user">
+            <UserRoleOptions />
           </Select>
+        </div>
+      </section>
+
+      <Divider className="my-10" soft />
+      <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div className="space-y-1">
+          <Subheading>Bio</Subheading>
+          <Text>
+            This will be displayed on your public profile. Maximum 500
+            characters.
+          </Text>
+        </div>
+        <div>
+          <Textarea
+            aria-label="Organization Bio"
+            name="bio"
+            resizable={false}
+            rows={3}
+            className={clsx('resize-none')}
+          />
         </div>
       </section>
 
       <Divider className="my-10" soft />
 
       <div className="flex justify-end gap-4">
-        <Button type="reset">Reset</Button>
+        <Button type="reset" plain>
+          Reset
+        </Button>
         <Button type="submit">Save changes</Button>
       </div>
     </form>

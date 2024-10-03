@@ -1,37 +1,34 @@
-import { IUserWithoutPassword } from '@/interfaces'
+'use client'
+
+import { IUser } from '@/interfaces'
 import Link from 'next/link'
 
-export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
+export function UsersTable({ users }: { users: IUser[] }) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300">
-                <thead className="bg-gray-50">
+              <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-600">
+                <thead className="bg-gray-50 dark:bg-gray-900">
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 sm:pl-6"
                     >
-                      First Name
+                      Name
                     </th>
+
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Last Name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-100"
                     >
                       Email
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-100"
                     >
                       Role
                     </th>
@@ -43,14 +40,14 @@ export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
+                <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-gray-900 ">
                   {users.map((person) => (
-                    <tr key={person.id}>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        {person.firstName}
-                      </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.lastName}
+                    <tr
+                      key={person.id}
+                      className="transition hover:bg-gray-800"
+                    >
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-100 sm:pl-6">
+                        {person.name}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         {person.email}
@@ -61,10 +58,10 @@ export function UsersTable({ users }: { users: IUserWithoutPassword[] }) {
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <Link
                           href={'/users/' + person.id}
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className="text-sky-600 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-600"
                         >
                           View Profile
-                          <span className="sr-only">, {person.firstName}</span>
+                          <span className="sr-only">, {person.name}</span>
                         </Link>
                       </td>
                     </tr>

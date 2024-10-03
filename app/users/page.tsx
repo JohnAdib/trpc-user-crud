@@ -5,24 +5,21 @@ import { IUserWithoutPassword, UserRole, UserStatus } from '@/interfaces'
 const sampleData: IUserWithoutPassword[] = [
   {
     id: 1,
-    firstName: 'Lindsay Walton',
-    lastName: 'Front-end Developer',
+    name: 'Lindsay Walton',
     email: 'lindsay.walton@example.com',
     role: UserRole.User,
     status: UserStatus.Active
   },
   {
     id: 2,
-    firstName: 'Lindsay Walton',
-    lastName: 'Front-end Developer',
+    name: 'Lindsay Walton',
     email: 'lindsay@example.com',
     role: UserRole.User,
     status: UserStatus.Active
   },
   {
     id: 3,
-    firstName: 'Lindsay Walton',
-    lastName: 'Front-end Developer',
+    name: 'Lindsay Walton',
     email: 'lindsay2@example.com',
     role: UserRole.User,
     status: UserStatus.Active
