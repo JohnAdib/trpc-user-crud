@@ -1,7 +1,7 @@
 'use client'
 
 import { BrowserFrame } from '@/components/layout/browser-frame'
-import { IUser } from '@/interfaces'
+import { IUser } from '@interfaces'
 
 export default function Page() {
   const user: IUser = {

@@ -1,4 +1,4 @@
-import { UserRole, UserStatus } from '@/interfaces'
+import { UserRole, UserStatus } from '@interfaces'
 import { z } from 'zod'
 
 export const validateAddUser = z.object({

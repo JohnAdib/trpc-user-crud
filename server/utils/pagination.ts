@@ -1,4 +1,4 @@
-import { IPaginationResult } from '@/interfaces'
+import { IPaginationResult } from '@interfaces'
 
 export function paginate<T>(
   items: T[],

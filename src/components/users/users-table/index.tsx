@@ -1,6 +1,6 @@
 'use client'
 
-import { IUser } from '@/interfaces'
+import { IUser } from '@interfaces'
 import Link from 'next/link'
 
 interface IUsersTable {

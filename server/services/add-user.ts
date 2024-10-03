@@ -1,4 +1,4 @@
-import { IUser } from '@/interfaces'
+import { IUser } from '@interfaces'
 import { sampleUsers } from './sample-users'
 
 export const addUser = (input: Omit<IUser, 'id'>): IUser => {
