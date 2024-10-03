@@ -5,7 +5,7 @@ export interface IUser {
   id: number
   name: string
   email: string
-  role: UserRole
+  role: UserRole | string
   bio?: string
-  status?: UserStatus
+  status?: UserStatus | string
 }

@@ -30,7 +30,14 @@ const sampleData: IUser[] = [
 ]
 
 export default function Page() {
-  void trpc.hello.prefetch()
+  // void trpc.hello.prefetch({
+  //   text: 'tRPC 123'
+  // })
+
+  void trpc.getUsers.prefetch({
+    page: 1,
+    perPage: 10
+  })
 
   // const deleteHandler = (id: string): boolean => {
   //   console.log('delete user with id: ', id)
