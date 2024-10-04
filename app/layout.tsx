@@ -19,7 +19,7 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'tRPC User CRUD',
+  title: 'Simple User Management',
   description: 'Simple CRUD app using tRPC and Next.js'
 }
 
