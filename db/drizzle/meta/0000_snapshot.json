@@ -1,5 +1,5 @@
 {
-  "id": "5c837103-6d94-4da3-a920-1e3fd7d923bb",
+  "id": "10c7b196-a83f-4140-a159-cafd3c172bd3",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -49,8 +49,8 @@
         }
       },
       "indexes": {
-        "email_idx": {
-          "name": "email_idx",
+        "email_unique_idx": {
+          "name": "email_unique_idx",
           "columns": [
             {
               "expression": "email",
@@ -59,7 +59,7 @@
               "nulls": "last"
             }
           ],
-          "isUnique": false,
+          "isUnique": true,
           "concurrently": false,
           "method": "btree",
           "with": {}

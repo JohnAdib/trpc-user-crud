@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"status" "user_status" NOT NULL
 );
 --> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "email_idx" ON "users" USING btree ("email");--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS "email_unique_idx" ON "users" USING btree ("email");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "role_idx" ON "users" USING btree ("role");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "status_idx" ON "users" USING btree ("status");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "role_status_idx" ON "users" USING btree ("role","status");

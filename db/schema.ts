@@ -1,4 +1,11 @@
-import { pgTable, serial, varchar, pgEnum, index } from 'drizzle-orm/pg-core'
+import {
+  pgTable,
+  serial,
+  varchar,
+  pgEnum,
+  uniqueIndex,
+  index
+} from 'drizzle-orm/pg-core'
 
 export const userRoleEnum = pgEnum('user_role', ['user', 'admin'])
 export const userStatusEnum = pgEnum('user_status', [
@@ -20,7 +27,7 @@ export const users = pgTable(
   },
   (table) => {
     return {
-      emailIdx: index('email_idx').on(table.email),
+      emailUniqueIdx: uniqueIndex('email_unique_idx').on(table.email),
       roleIdx: index('role_idx').on(table.role),
       statusIdx: index('status_idx').on(table.status),
       roleStatusIdx: index('role_status_idx').on(table.role, table.status)
