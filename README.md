@@ -2,15 +2,11 @@
 
 A lightweight and efficient user management system built with **Next.js**, **tRPC**, and **TypeScript**. This app allows you to add, view, and delete users with ease. It features pagination, role-based access, validation, and is fully responsive.
 
-![](doc/demo.mp4)
+doc/demo.mp4
 
 https://www.loom.com/share/0e6d62dc88974c3889997e740f8315b6?sid=a92187c6-3ef9-4888-b63d-96ff83fce100
 
-<video width="720" controls>
-  <source src="doc/demo.mp4" type="video/mp4">
-</video>
-
-<video src='doc/demo.mp4' width="720"></video>
+./doc/demo.mp4
 
 ## Features
 
