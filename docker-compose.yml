@@ -1,11 +1,15 @@
 services:
-  app:
+  nextjs:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: docker-next
     ports:
       - '3000:3000'
+    tty: true
     volumes:
-      - .:/app
-      - /app/node_modules
+      - ./app:/usr/local/src/app
+      # - ./scripts:/usr/local/src/scripts
+      - node_modules:/usr/local/src/app/node_modules
+
+volumes:
+  node_modules:
