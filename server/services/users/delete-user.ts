@@ -1,12 +1,7 @@
-import { sampleUsers } from './sample-users'
+import { repositories } from '@server/repositories'
 
-export const deleteUser = (input: { id: number }): boolean => {
-  const index = sampleUsers.findIndex((user) => user.id === input.id)
-
-  if (index !== -1) {
-    sampleUsers.splice(index, 1)
-    return true
-  }
-
-  return false
+export const deleteUser = async (input: { id: number }): Promise<void> => {
+  await repositories.users.deleteUser({
+    userId: input.id
+  })
 }

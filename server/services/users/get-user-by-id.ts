@@ -1,7 +1,12 @@
 import { IUser } from '@interfaces'
-import { sampleUsers } from './sample-users'
+import { repositories } from '@server/repositories'
 
-export const getUserById = (input: { id: number }): IUser | null => {
-  const user = sampleUsers.find((user) => user.id === input.id)
-  return user || null
+export const getUserById = async (input: {
+  id: number
+}): Promise<IUser | null> => {
+  const userData = (await repositories.users.getUserById({
+    userId: input.id
+  })) as IUser
+
+  return userData
 }
