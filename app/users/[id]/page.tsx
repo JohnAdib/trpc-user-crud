@@ -13,10 +13,6 @@ export default function Page({ params }: { params: { id: string } }) {
   const userId = parseInt(params.id, 10)
   const deleteUserMutation = trpc.deleteUser.useMutation()
 
-  const handleUserDelete = async () => {
-    console.log('delete user with id: ', userId)
-  }
-
   const { data } = trpc.getUserById.useQuery({
     id: userId
   })

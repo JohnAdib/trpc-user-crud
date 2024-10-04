@@ -19,12 +19,30 @@ function UserRoleOptions() {
 }
 
 interface IAddUser {
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  onSubmit: (data: any) => void
 }
 
 export function AddUser({ onSubmit }: IAddUser) {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    // Collect the form data using FormData API
+    const formData = new FormData(e.currentTarget)
+
+    // Create an object from the form data
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      role: formData.get('role'),
+      bio: formData.get('bio')
+    }
+
+    // Pass the collected data to the onSubmit handler
+    onSubmit(data)
+  }
+
   return (
-    <form method="post" className="mx-auto max-w-4xl" onSubmit={onSubmit}>
+    <form method="post" className="mx-auto max-w-4xl" onSubmit={handleSubmit}>
       <Heading>Add New User</Heading>
       <Divider className="my-10 mt-6" />
 
@@ -36,7 +54,7 @@ export function AddUser({ onSubmit }: IAddUser) {
         <div>
           <Input
             aria-label="Name"
-            name="mame"
+            name="name"
             defaultValue=""
             autoComplete="name"
           />
