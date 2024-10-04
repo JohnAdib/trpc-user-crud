@@ -1,5 +1,6 @@
 'use client'
 
+import { EmptyState } from '@components/layout/empty-state'
 import { Loading } from '@components/layout/loading'
 import { PageHeader } from '@components/layout/page-header'
 import { UsersTable } from '@components/users/users-table'
@@ -17,7 +18,14 @@ export default function Page() {
   }
 
   if (data === null || data?.result.length === 0) {
-    return <div>No users found.</div>
+    return (
+      <EmptyState
+        title="There are no users!"
+        description="Get started by adding a new user."
+        btnHref="/users/add"
+        btnText="Add User"
+      />
+    )
   }
 
   const deleteHandler = (id: string): boolean => {
