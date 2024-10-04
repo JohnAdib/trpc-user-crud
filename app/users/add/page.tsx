@@ -4,7 +4,7 @@ import { AddUser } from '@components/users/add-user'
 import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2'
 import { trpc } from '~/trpc/client'
-import { parseZodError } from '../parse-zod-error'
+import { parseApiError } from '../../_helpers/parse-zod-error'
 
 export default function Page() {
   const router = useRouter()
@@ -22,7 +22,7 @@ export default function Page() {
       })
       router.push('/users')
     } catch (error) {
-      parseZodError({ error })
+      parseApiError(error)
     }
     return true
   }
