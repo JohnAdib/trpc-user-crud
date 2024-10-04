@@ -48,7 +48,7 @@ export function UsersTable({ users }: IUsersTable) {
                   {users.map((person) => (
                     <tr
                       key={person.id}
-                      className="transition hover:bg-gray-800"
+                      className="transition hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-100 sm:pl-6">
                         {person.name}

@@ -15,9 +15,11 @@ export function paginate<T>(
 
   return {
     result: paginatedItems,
-    totalItems,
-    totalPages,
-    currentPage: safePage,
-    perPage
+    meta: {
+      totalItems,
+      totalPages,
+      currentPage: safePage,
+      perPage
+    }
   }
 }

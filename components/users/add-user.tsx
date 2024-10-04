@@ -119,7 +119,9 @@ export function AddUser({ onSubmit }: IAddUser) {
         <Button type="reset" plain>
           Reset
         </Button>
-        <Button type="submit">Save changes</Button>
+        <Button type="submit" color="sky">
+          Save changes
+        </Button>
       </div>
     </form>
   )
