@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import { trpc } from '~/trpc/client'
 
 export default function Page() {
+  const deleteUserMutation = trpc.deleteUser.useMutation()
   const { data, isLoading } = trpc.getUsers.useQuery({
     page: 1,
     perPage: 10
@@ -28,12 +29,25 @@ export default function Page() {
     )
   }
 
-  const deleteHandler = (id: string): boolean => {
+  const deleteHandler = async (id: number): Promise<boolean> => {
     console.log('delete user with id: ', id)
+    try {
+      const deleteResult = await deleteUserMutation.mutateAsync({ id })
+      console.log('deleteResult', deleteResult)
+
+      Swal.fire({
+        title: 'Deleted!',
+        text: 'User has been deleted! ',
+        icon: 'success'
+      })
+    } catch (error) {
+      Swal.fire('Error!', 'Failed to delete user!', 'error')
+      console.error('Failed to delete user', error)
+    }
     return true
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: number) => {
     Swal.fire({
       title: 'Are you sure?',
       text:
@@ -46,16 +60,7 @@ export default function Page() {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        const deleted = deleteHandler(id)
-        if (deleted) {
-          Swal.fire({
-            title: 'Deleted!',
-            text: 'User has been deleted!',
-            icon: 'success'
-          })
-        } else {
-          Swal.fire('Error!', 'Something went wrong!', 'error')
-        }
+        deleteHandler(id)
       }
     })
   }

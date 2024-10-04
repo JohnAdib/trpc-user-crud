@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 interface IUsersTable {
   users: IUser[]
-  onClickDelete: (id: string) => void
+  onClickDelete: (id: number) => void
 }
 
 export function UsersTable({ users, onClickDelete }: IUsersTable) {
@@ -68,9 +68,7 @@ export function UsersTable({ users, onClickDelete }: IUsersTable) {
                           View Profile
                           <span className="sr-only">, {person.name}</span>
                         </Link>
-                        <div
-                          onClick={() => onClickDelete(person.id.toString())}
-                        >
+                        <div onClick={() => onClickDelete(person.id)}>
                           Delete
                         </div>
                       </td>
