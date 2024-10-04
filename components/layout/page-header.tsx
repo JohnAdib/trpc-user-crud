@@ -9,6 +9,7 @@ interface IPageHeader {
   btnText: string
   btnHref: string
   btnAction?: () => void
+  btnColor?: 'sky' | 'red'
 }
 
 export function PageHeader({
@@ -16,6 +17,7 @@ export function PageHeader({
   description,
   btnText,
   btnHref,
+  btnColor = 'sky',
   btnAction
 }: IPageHeader) {
   return (
@@ -28,7 +30,7 @@ export function PageHeader({
           </Subheading>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <Button href={btnHref} onClick={btnAction} color="sky">
+          <Button href={btnHref} onClick={btnAction} color={btnColor}>
             {btnText}
           </Button>
         </div>

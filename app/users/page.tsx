@@ -4,7 +4,6 @@ import { EmptyState } from '@components/layout/empty-state'
 import { Loading } from '@components/layout/loading'
 import { PageHeader } from '@components/layout/page-header'
 import { UsersTable } from '@components/users/users-table'
-import Swal from 'sweetalert2'
 import { trpc } from '~/trpc/client'
 
 export default function Page() {
@@ -39,6 +38,7 @@ export default function Page() {
         title="Users"
         description="A list of all the users. You can add, view, and delete users."
         btnText="Add User"
+        btnColor="sky"
         btnHref="/users/add"
       />
       <UsersTable users={data.result} />

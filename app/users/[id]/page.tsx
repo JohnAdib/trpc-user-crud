@@ -83,6 +83,7 @@ export default function Page({ params }: { params: { id: string } }) {
         description="You can view the user's profile here!"
         btnText="Delete User"
         btnHref=""
+        btnColor="red"
         btnAction={() => handleDelete(userId)}
       />
       <BrowserFrame>{userString}</BrowserFrame>
