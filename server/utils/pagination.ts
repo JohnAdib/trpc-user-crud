@@ -1,18 +1,26 @@
 import { IPaginationResult } from '@interfaces'
 
-export function paginate<T>(
-  items: T[],
-  currentPage: number,
+interface IPaginateInput<T> {
+  paginatedItems: T[]
+  totalItems: number
+  currentPage: number
   perPage: number
-): IPaginationResult<T> {
-  const totalItems = items.length
+}
+
+export function paginate<T>({
+  paginatedItems,
+  totalItems,
+  currentPage,
+  perPage
+}: IPaginateInput<T>): IPaginationResult<T> {
+  console.log('paginatedItems in paginate', paginatedItems)
+
   const totalPages = Math.ceil(totalItems / perPage)
 
+  // Ensure the current page is within the valid range
   const safePage = Math.max(1, Math.min(currentPage, totalPages))
 
-  const start = (safePage - 1) * perPage
-  const paginatedItems = items.slice(start, start + perPage)
-
+  // Return the paginated result with metadata
   return {
     result: paginatedItems,
     meta: {

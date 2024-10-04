@@ -45,7 +45,7 @@ export function UsersTable({ users }: IUsersTable) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-gray-900 ">
-                  {users.map((person) => (
+                  {users?.map((person) => (
                     <tr
                       key={person.id}
                       className="transition hover:bg-gray-100 dark:hover:bg-gray-800"

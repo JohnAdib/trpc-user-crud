@@ -14,6 +14,9 @@ export default function Page() {
   const searchParamPage = searchParams.get('page')
     ? parseInt(searchParams.get('page') as string, 10)
     : 1
+
+  // TODO: Make this configurable and move it to ENV
+  // For now, we will hardcode it to 2 to keep it simple and test the pagination
   const defaultPerPage = 2
   const searchParamLimit = searchParams.get('limit')
     ? parseInt(searchParams.get('limit') as string, 10)

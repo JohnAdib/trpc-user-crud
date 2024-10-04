@@ -1,5 +1,5 @@
 import { db, users } from '@db'
-import { UserRole, UserStatus } from '@interfaces'
+import { IUser, UserRole, UserStatus } from '@interfaces'
 
 export async function addUser({
   name,
@@ -13,9 +13,10 @@ export async function addUser({
   role: UserRole
   bio?: string
   status: UserStatus
-}) {
+}): Promise<IUser> {
   return await db
     .insert(users)
     .values({ name, email, role, bio, status })
     .returning()
+    .then((data) => data[0])
 }

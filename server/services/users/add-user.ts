@@ -18,7 +18,7 @@ export const addUser = async (input: Omit<IUser, 'id'>) => {
     name: input.name,
     email: input.email,
     role: userRole,
-    bio: input.bio,
+    bio: input.bio || '',
     status: UserStatus.Active
   })
 

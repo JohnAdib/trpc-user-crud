@@ -1,12 +1,12 @@
 import { db, users } from '@db'
+import { IUser } from '@interfaces'
 
 export async function getUsers({
-  page = 1,
-  perPage = 10
+  offset,
+  limit
 }: {
-  page?: number
-  perPage?: number
-}) {
-  const offset = (page - 1) * perPage
-  return await db.select().from(users).offset(offset).limit(perPage)
+  offset: number
+  limit: number
+}): Promise<IUser[]> {
+  return await db.select().from(users).offset(offset).limit(limit)
 }
