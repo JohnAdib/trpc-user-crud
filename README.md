@@ -2,8 +2,6 @@
 
 A lightweight and efficient user management system built with **Next.js**, **tRPC**, and **TypeScript**. This app allows you to add, view, and delete users with ease. It features pagination, role-based access, validation, and is fully responsive.
 
-https://github.com/JohnAdib/trpc-user-crud/raw/refs/heads/main/doc/demo.mp4
-
 https://www.loom.com/share/0e6d62dc88974c3889997e740f8315b6?sid=a92187c6-3ef9-4888-b63d-96ff83fce100
 
 ## Features

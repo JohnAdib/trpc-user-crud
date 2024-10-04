@@ -23,6 +23,7 @@
       "@server/*": ["./server/*"],
       "@components/*": ["./components/*"],
       "@interfaces": ["./interfaces"],
+      "@db": ["./db"],
       "@/*": ["./src/*"],
       "~/trpc/*": ["./trpc/*"]
     }
