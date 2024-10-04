@@ -4,18 +4,11 @@ import { EmptyState } from '@components/layout/empty-state'
 import { Loading } from '@components/layout/loading'
 import { PageHeader } from '@components/layout/page-header'
 import { UsersTable } from '@components/users/users-table'
-import { useQueryClient } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
 import { trpc } from '~/trpc/client'
 
 export default function Page() {
-  const queryClient = useQueryClient()
-  const deleteUserMutation = trpc.deleteUser.useMutation({
-    onSuccess: () => {
-      // Invalidate and refetch the getUsers query when a user is deleted
-      // queryClient.invalidateQueries([['getUsers']])
-    }
-  })
+  const deleteUserMutation = trpc.deleteUser.useMutation()
   const { data, isLoading } = trpc.getUsers.useQuery({
     page: 1,
     perPage: 10

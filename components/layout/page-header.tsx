@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '../atoms/button'
 import { Heading, Subheading } from '../atoms/heading'
 
@@ -6,13 +8,15 @@ interface IPageHeader {
   description: string
   btnText: string
   btnHref: string
+  btnAction?: () => void
 }
 
 export function PageHeader({
   title,
   description,
   btnText,
-  btnHref
+  btnHref,
+  btnAction
 }: IPageHeader) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -24,7 +28,7 @@ export function PageHeader({
           </Subheading>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <Button href={btnHref} color="sky">
+          <Button href={btnHref} onClick={btnAction} color="sky">
             {btnText}
           </Button>
         </div>
