@@ -2,7 +2,7 @@
 FROM node:alpine
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /usr/local/src/app
 
 # Copy only package.json and package-lock.json to leverage Docker's caching mechanism
 COPY package*.json ./
