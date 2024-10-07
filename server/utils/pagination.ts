@@ -13,8 +13,6 @@ export function paginate<T>({
   currentPage,
   perPage
 }: IPaginateInput<T>): IPaginationResult<T> {
-  console.log('paginatedItems in paginate', paginatedItems)
-
   const totalPages = Math.ceil(totalItems / perPage)
 
   // Ensure the current page is within the valid range
