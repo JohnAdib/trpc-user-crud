@@ -1,5 +1,5 @@
 import { IUser } from '@interfaces'
-import { repositories } from '@server/repositories'
+import { repositories } from '@server'
 
 export const getUserById = async (input: {
   id: number

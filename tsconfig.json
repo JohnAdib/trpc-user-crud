@@ -21,7 +21,7 @@
     "types": ["vitest/globals"],
     "paths": {
       "@app/*": ["./app/*"],
-      "@server/*": ["./server/*"],
+      "@server": ["./server"],
       "@components/*": ["./components/*"],
       "@interfaces": ["./interfaces"],
       "@db": ["./db"],

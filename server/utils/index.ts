@@ -1,1 +1,4 @@
-export { paginate } from './pagination'
+import { paginate } from './pagination'
+export const utils = {
+  paginate
+}

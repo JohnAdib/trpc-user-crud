@@ -1,10 +1,7 @@
-import {
-  validatePagination,
-  validateUserId,
-  validateAddUser
-} from '@server/validation'
+import { validatePagination, validateUserId, validateAddUser } from '@server'
 import { baseProcedure, createTRPCRouter } from '../init'
-import { services } from '@server/services'
+import { services } from '@server'
+import { IUserAdd } from '@interfaces'
 
 export const appRouter = createTRPCRouter({
   getUsers: baseProcedure.input(validatePagination).query(({ input }) => {
@@ -16,7 +13,7 @@ export const appRouter = createTRPCRouter({
   }),
 
   addUser: baseProcedure.input(validateAddUser).mutation(({ input }) => {
-    return services.users.addUser(input)
+    return services.users.addUser(input as IUserAdd)
   }),
 
   deleteUser: baseProcedure.input(validateUserId).mutation(({ input }) => {

@@ -8,7 +8,7 @@ import { Text } from '@components/atoms/text'
 import clsx from 'clsx'
 import { Button } from '@components/atoms/button'
 import { Select } from '@components/atoms/select'
-import { UserRole } from '@interfaces'
+import { IUserAdd, UserRole } from '@interfaces'
 
 function UserRoleOptions() {
   return Object.keys(UserRole).map((role) => (
@@ -19,7 +19,7 @@ function UserRoleOptions() {
 }
 
 interface IAddUser {
-  onSubmit: (data: any) => void
+  onSubmit: (data: IUserAdd) => void
 }
 
 export function AddUser({ onSubmit }: IAddUser) {
@@ -30,11 +30,11 @@ export function AddUser({ onSubmit }: IAddUser) {
     const formData = new FormData(e.currentTarget)
 
     // Create an object from the form data
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      role: formData.get('role'),
-      bio: formData.get('bio')
+    const data: IUserAdd = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      role: formData.get('role') as UserRole,
+      bio: formData.get('bio') as string
     }
 
     // Pass the collected data to the onSubmit handler

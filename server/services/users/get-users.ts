@@ -1,5 +1,5 @@
-import { paginate } from '@server/utils/pagination'
-import { repositories } from '@server/repositories'
+import { utils } from '@server'
+import { repositories } from '@server'
 import { IPaginationResult, IUser } from '@interfaces'
 
 export const getUsers = async (input: { page: number; perPage: number }) => {
@@ -20,7 +20,7 @@ export const getUsers = async (input: { page: number; perPage: number }) => {
     limit: input.perPage
   })
 
-  const paginatedUsers: IPaginationResult<IUser> = paginate({
+  const paginatedUsers: IPaginationResult<IUser> = utils.paginate({
     paginatedItems,
     totalItems,
     currentPage: input.page,

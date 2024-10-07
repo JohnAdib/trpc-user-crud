@@ -1,7 +1,7 @@
-import { IUser, UserRole, UserStatus } from '@interfaces'
-import { repositories } from '@server/repositories'
+import { IUserAdd, UserRole, UserStatus } from '@interfaces'
+import { repositories } from '@server'
 
-export const addUser = async (input: Omit<IUser, 'id'>) => {
+export const addUser = async (input: IUserAdd): Promise<boolean> => {
   const userRole: UserRole = input.role as UserRole
 
   const isUserExist = await repositories.users.getUserByEmail({
@@ -14,7 +14,7 @@ export const addUser = async (input: Omit<IUser, 'id'>) => {
     )
   }
 
-  const addedUser = await repositories.users.addUser({
+  await repositories.users.addUser({
     name: input.name,
     email: input.email,
     role: userRole,
@@ -22,6 +22,5 @@ export const addUser = async (input: Omit<IUser, 'id'>) => {
     status: UserStatus.ACTIVE
   })
 
-  console.log('addedUser', addedUser)
   return true
 }
