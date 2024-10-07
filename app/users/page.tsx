@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { Pagination } from '@components/layout/pagination'
 import { EmptyState } from '@components/layout/empty-state'
 import { Loading } from '@components/layout/loading'
@@ -8,7 +9,7 @@ import { UsersTable } from '@components/users/users-table'
 import { trpc } from '~/trpc/client'
 import { useSearchParams } from 'next/navigation'
 
-export default function Page() {
+function UsersContent() {
   const searchParams = useSearchParams()
 
   const searchParamPage = searchParams.get('page')
@@ -16,7 +17,6 @@ export default function Page() {
     : 1
 
   // TODO: Make this configurable and move it to ENV
-  // For now, we will hardcode it to 2 to keep it simple and test the pagination
   const defaultPerPage = 2
   const searchParamLimit = searchParams.get('limit')
     ? parseInt(searchParams.get('limit') as string, 10)
@@ -64,5 +64,13 @@ export default function Page() {
         baseUrl="/users"
       />
     </>
+  )
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <UsersContent />
+    </Suspense>
   )
 }
